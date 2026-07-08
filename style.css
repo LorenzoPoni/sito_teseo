@@ -16,7 +16,9 @@ body {
 
 .hero {
     flex: 1;
-    background: linear-gradient(135deg, #1a3a5c 0%, #0d2137 50%, #1a3a5c 100%);
+    background: 
+        linear-gradient(rgba(10, 22, 40, 0.85), rgba(10, 22, 40, 0.9)),
+        url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&q=80') center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: center;
