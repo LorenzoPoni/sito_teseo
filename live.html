@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live - Gli Smarriti</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="nav-dots">
+        <a href="index.html" class="nav-dot">
+            <span class="dot-number">1</span>
+            <span class="dot-label">Introduzione</span>
+        </a>
+        <a href="sfida.html" class="nav-dot">
+            <span class="dot-number">2</span>
+            <span class="dot-label">La sfida</span>
+        </a>
+        <a href="come.html" class="nav-dot">
+            <span class="dot-number">3</span>
+            <span class="dot-label">Il come</span>
+        </a>
+        <a href="live.html" class="nav-dot active">
+            <span class="dot-number">4</span>
+            <span class="dot-label">Live</span>
+        </a>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+    </nav>
+
+    <section class="live-section section">
+        <div class="overlay">
+            <div class="live-content">
+                <h1 class="section-title">Live Stream</h1>
+                <div class="divider"></div>
+                <div class="video-container">
+                    <video id="webcam" autoplay playsinline></video>
+                    <div class="video-placeholder" id="placeholder">
+                        <p>Clicca "Avvia Camera" per iniziare lo streaming</p>
+                    </div>
+                </div>
+                <button class="camera-btn" id="startBtn" onclick="startCamera()">Avvia Camera</button>
+                <button class="camera-btn stop" id="stopBtn" onclick="stopCamera()" style="display: none;">Ferma Camera</button>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Project Work - MAST 2026</p>
+    </footer>
+
+    <script>
+        let stream = null;
+
+        async function startCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({ 
+                    video: { 
+                        width: { ideal: 1280 },
+                        height: { ideal: 720 }
+                    } 
+                });
+                const video = document.getElementById('webcam');
+                video.srcObject = stream;
+                video.style.display = 'block';
+                document.getElementById('placeholder').style.display = 'none';
+                document.getElementById('startBtn').style.display = 'none';
+                document.getElementById('stopBtn').style.display = 'inline-block';
+            } catch (err) {
+                alert('Errore accesso alla webcam: ' + err.message);
+            }
+        }
+
+        function stopCamera() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+                stream = null;
+            }
+            const video = document.getElementById('webcam');
+            video.srcObject = null;
+            video.style.display = 'none';
+            document.getElementById('placeholder').style.display = 'flex';
+            document.getElementById('startBtn').style.display = 'inline-block';
+            document.getElementById('stopBtn').style.display = 'none';
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
+</body>
+</html>
