@@ -15,6 +15,7 @@
                 <div class="divider"></div>
                 <p class="tagline">Teseo e il Minotauro</p>
                 <p class="description">Un viaggio nel mito, tra storia e tecnologia</p>
+                <p class="typewriter">Esplora: <span id="typed-text"></span><span class="cursor">|</span></p>
             </div>
         </div>
     </main>
@@ -22,5 +23,40 @@
     <footer>
         <p>Project Work - MAST 2026</p>
     </footer>
+
+    <script>
+        const words = ['IoT', 'AI', 'Cyberworld'];
+        const typedText = document.getElementById('typed-text');
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentWord = words[wordIndex];
+            
+            if (isDeleting) {
+                typedText.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 1500;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % words.length;
+                typeSpeed = 300;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        setTimeout(type, 1000);
+    </script>
 </body>
 </html>
