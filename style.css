@@ -212,8 +212,8 @@ footer {
 
 .sfida-section {
     background: 
-        linear-gradient(rgba(30, 30, 30, 0.65), rgba(40, 35, 30, 0.7)),
-        url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&q=80') center/cover no-repeat;
+        linear-gradient(rgba(15, 15, 20, 0.7), rgba(20, 18, 15, 0.75)),
+        url('https://images.unsplash.com/photo-1604580864964-0462f4d5f705?w=1920&q=80') center/cover no-repeat;
     position: relative;
     overflow: hidden;
 }
