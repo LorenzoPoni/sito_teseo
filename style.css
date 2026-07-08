@@ -71,6 +71,17 @@ body {
     padding-right: 0.5rem;
 }
 
+.nav-dot.active .dot-number {
+    background: #8b6914;
+    color: #fff;
+}
+
+.nav-dot.active .dot-label {
+    max-width: 150px;
+    opacity: 1;
+    padding-right: 0.5rem;
+}
+
 .section {
     min-height: 100vh;
     display: flex;
@@ -177,11 +188,11 @@ footer {
     border-top: 1px solid rgba(139, 105, 20, 0.3);
 }
 
-#sfida, #come {
+.sfida-section, .come-section {
     background: #f5f0e6;
 }
 
-#sfida h2, #come h2 {
+.sfida-section h2, .come-section h2 {
     font-family: 'Cinzel', serif;
     font-size: 3rem;
     color: #8b6914;
