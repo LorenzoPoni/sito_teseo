@@ -217,7 +217,7 @@ footer {
     position: relative;
     overflow: hidden;
     align-items: flex-start;
-    padding-top: 8rem;
+    padding-top: 4rem;
 }
 
 .sfida-section::before {
@@ -239,6 +239,17 @@ footer {
     text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
     letter-spacing: 0.1em;
     animation: fadeInUp 0.8s ease-out;
+}
+
+.section-text {
+    font-size: 1.2rem;
+    color: #f5f0e6;
+    font-weight: 400;
+    max-width: 700px;
+    margin: 0 auto;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
+    line-height: 1.8;
+    animation: fadeInUp 0.8s ease-out 0.2s both;
 }
 
 .come-section {
