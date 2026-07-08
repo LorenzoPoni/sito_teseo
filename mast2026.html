@@ -8,11 +8,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="page-transition"></div>
-    
-    <button class="nav-arrow nav-arrow-left" onclick="goToPage('live.html')">❮</button>
-    <button class="nav-arrow nav-arrow-right" onclick="goToPage('index.html')">❯</button>
-    
     <nav class="nav-dots">
         <a href="index.html" class="nav-dot">
             <span class="dot-number">1</span>
@@ -57,22 +52,6 @@
                 document.exitFullscreen();
             }
         }
-
-        function goToPage(page) {
-            const transition = document.querySelector('.page-transition');
-            transition.classList.add('active');
-            setTimeout(() => {
-                window.location.href = page;
-            }, 400);
-        }
-
-        window.addEventListener('load', () => {
-            const transition = document.querySelector('.page-transition');
-            transition.classList.add('fade-out');
-            setTimeout(() => {
-                transition.classList.remove('active', 'fade-out');
-            }, 400);
-        });
     </script>
 </body>
 </html>
