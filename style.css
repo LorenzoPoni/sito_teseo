@@ -210,15 +210,37 @@ footer {
     border-top: 1px solid rgba(139, 105, 20, 0.3);
 }
 
-.sfida-section, .come-section {
-    background: #f5f0e6;
+.sfida-section {
+    background: 
+        linear-gradient(rgba(30, 30, 30, 0.65), rgba(40, 35, 30, 0.7)),
+        url('https://images.unsplash.com/photo-1555993539-1732b0258235?w=1920&q=80') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
 }
 
-.sfida-section h2, .come-section h2 {
+.sfida-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(139, 105, 20, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.section-title {
     font-family: 'Cinzel', serif;
-    font-size: 3rem;
-    color: #8b6914;
-    text-align: center;
+    font-size: 4rem;
+    font-weight: 700;
+    color: #d4af37;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    letter-spacing: 0.1em;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.come-section {
+    background: #f5f0e6;
 }
 
 @media (max-width: 768px) {
