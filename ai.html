@@ -60,9 +60,13 @@
 
     <script>
         let pollingInterval;
+        
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000/api/ai-reasoning'
+            : `${window.location.origin}/api/ai-reasoning`;
 
         function fetchAIReasoning() {
-            fetch('http://localhost:3000/api/ai-reasoning')
+            fetch(API_URL)
                 .then(response => response.json())
                 .then(data => {
                     const reasoningEl = document.getElementById('aiReasoning');
