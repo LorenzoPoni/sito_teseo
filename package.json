@@ -1,0 +1,11 @@
+{
+  "name": "sito-teseo",
+  "version": "1.0.0",
+  "description": "Sito presentazione progetto Teseo e il Minotauro",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Gli Smarriti",
+  "license": "MIT"
+}
