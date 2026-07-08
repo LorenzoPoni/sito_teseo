@@ -62,7 +62,7 @@
         let pollingInterval;
 
         function fetchAIReasoning() {
-            fetch('/api/ai-reasoning')
+            fetch('http://localhost:3000/api/ai-reasoning')
                 .then(response => response.json())
                 .then(data => {
                     const reasoningEl = document.getElementById('aiReasoning');
