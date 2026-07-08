@@ -21,6 +21,7 @@
             <span class="dot-number">3</span>
             <span class="dot-label">Il come</span>
         </a>
+        <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
     </nav>
 
     <section class="section come-section">
@@ -32,5 +33,15 @@
     <footer>
         <p>Project Work - MAST 2026</p>
     </footer>
+
+    <script>
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+    </script>
 </body>
 </html>

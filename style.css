@@ -25,6 +25,28 @@ body {
     z-index: 100;
 }
 
+.fullscreen-btn {
+    margin-top: 0.5rem;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: rgba(139, 105, 20, 0.3);
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+.nav-dots:hover .fullscreen-btn {
+    opacity: 1;
+}
+
+.fullscreen-btn:hover {
+    color: #8b6914;
+}
+
 .nav-dot {
     display: flex;
     align-items: center;
