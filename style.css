@@ -245,11 +245,37 @@ footer {
     font-size: 1.2rem;
     color: #f5f0e6;
     font-weight: 400;
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 600px;
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.8);
     line-height: 1.8;
     animation: fadeInUp 0.8s ease-out 0.2s both;
+}
+
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+.content-text {
+    flex: 1;
+    max-width: 550px;
+}
+
+.content-image {
+    flex: 0 0 auto;
+}
+
+.mito-image {
+    width: 320px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+    border: 3px solid rgba(212, 175, 55, 0.3);
+    animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
 .come-section {
@@ -267,5 +293,23 @@ footer {
     
     .description {
         font-size: 1rem;
+    }
+    
+    .content-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .content-text {
+        max-width: 100%;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .mito-image {
+        width: 250px;
     }
 }
