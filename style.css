@@ -273,9 +273,9 @@ footer {
 
 .content-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    gap: 4rem;
+    gap: 3rem;
     max-width: 1200px;
     padding: 2rem;
 }
@@ -283,10 +283,12 @@ footer {
 .content-text {
     flex: 1;
     max-width: 550px;
+    padding-top: 2rem;
 }
 
 .content-image {
     flex: 0 0 auto;
+    padding-top: 1rem;
 }
 
 .mito-image {
