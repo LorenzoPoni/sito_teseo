@@ -100,12 +100,28 @@
 
         async function startCamera() {
             try {
-                stream = await navigator.mediaDevices.getUserMedia({ 
-                    video: { 
+                const devices = await navigator.mediaDevices.enumerateDevices();
+                const videoDevices = devices.filter(d => d.kind === 'videoinput');
+                
+                console.log('Camere disponibili:', videoDevices);
+                
+                const constraints = {
+                    video: {
                         width: { ideal: 1280 },
-                        height: { ideal: 720 }
-                    } 
-                });
+                        height: { ideal: 720 },
+                        facingMode: 'environment'
+                    }
+                };
+                
+                const droidCamDevice = videoDevices.find(d => 
+                    d.label.toLowerCase().includes('droidcam')
+                );
+                
+                if (droidCamDevice) {
+                    constraints.video.deviceId = { exact: droidCamDevice.deviceId };
+                }
+                
+                stream = await navigator.mediaDevices.getUserMedia(constraints);
                 const video = document.getElementById('webcam');
                 video.srcObject = stream;
                 video.style.display = 'block';
@@ -114,7 +130,7 @@
                 document.getElementById('stopBtn').style.display = 'inline-block';
                 document.getElementById('fullscreenBtn').style.display = 'block';
             } catch (err) {
-                alert('Errore accesso alla webcam: ' + err.message);
+                alert('Errore accesso alla webcam: ' + err.message + '\n\nProva a:\n1. Usare Chrome\n2. Controllare i permessi del browser\n3. Verificare che DroidCam sia attivo');
             }
         }
 
