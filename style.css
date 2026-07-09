@@ -325,8 +325,8 @@ footer {
 
 .video-container {
     width: 100%;
-    max-width: 900px;
-    margin: 2rem auto;
+    max-width: 100%;
+    margin: 0 auto;
     position: relative;
     background: rgba(0, 0, 0, 0.4);
     border-radius: 12px;
@@ -345,7 +345,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 400px;
+    min-height: 450px;
     color: #d4af37;
     font-family: 'Cinzel', serif;
     font-size: 1.2rem;
