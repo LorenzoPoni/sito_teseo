@@ -606,6 +606,46 @@ footer {
     align-items: center;
 }
 
+.guerriero-section {
+    background: 
+        linear-gradient(rgba(15, 12, 10, 0.65), rgba(25, 20, 15, 0.70)),
+        url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2Phj6jAztItJwcnl2INOYj9hS4CC6UTyORluZYcXlsA&s=10') center/cover no-repeat;
+    position: relative;
+    overflow: hidden;
+    align-items: center;
+}
+
+.guerriero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(139, 105, 20, 0.08) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.guerriero-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+.guerriero-image-container {
+    margin-top: 3rem;
+}
+
+.guerriero-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.8);
+    border: 3px solid rgba(212, 175, 55, 0.4);
+}
+
 .mast-section::before {
     content: '';
     position: absolute;
