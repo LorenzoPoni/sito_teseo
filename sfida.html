@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gli Smarriti - Teseo e il Minotauro</title>
+    <title>La sfida - Gli Smarriti</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Lato:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
     <nav class="nav-dots">
-        <a href="index.html" class="nav-dot active">
+        <a href="index.html" class="nav-dot">
             <span class="dot-number">1</span>
             <span class="dot-label">Introduzione</span>
         </a>
@@ -17,7 +17,7 @@
             <span class="dot-number">2</span>
             <span class="dot-label">Il Mito</span>
         </a>
-        <a href="sfida.html" class="nav-dot">
+        <a href="sfida.html" class="nav-dot active">
             <span class="dot-number">3</span>
             <span class="dot-label">La sfida</span>
         </a>
@@ -36,14 +36,17 @@
         <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
     </nav>
 
-    <section class="hero section">
+    <section class="sfida-section section">
         <div class="overlay">
-            <div class="content">
-                <h1 class="group-name">Gli Smarriti</h1>
-                <div class="divider"></div>
-                <p class="tagline">Teseo e il Minotauro</p>
-                <p class="description">Un viaggio nel mito, tra storia e tecnologia</p>
-                <p class="typewriter"><span id="typed-text"></span><span class="cursor">|</span></p>
+            <div class="content-wrapper">
+                <div class="content-text">
+                    <h1 class="section-title">La sfida</h1>
+                    <div class="divider"></div>
+                    <p class="section-text">La sfida di combinare le competenze di 3 diversi percorsi del corso.</p>
+                </div>
+                <div class="content-image">
+                    <img src="https://www.noinonni.it/wp-content/uploads/2020/01/Teseo-Minotauro.jpg" alt="Teseo e il Minotauro" class="mito-image">
+                </div>
             </div>
         </div>
     </section>
@@ -53,39 +56,6 @@
     </footer>
 
     <script>
-        const words = ['Internet of Things', 'Artificial Intelligence', 'Cyberworld'];
-        const typedText = document.getElementById('typed-text');
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            
-            if (isDeleting) {
-                typedText.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedText.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 1500;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 300;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
-        setTimeout(type, 1000);
-
         function toggleFullscreen() {
             if (!document.fullscreenElement) {
                 document.documentElement.requestFullscreen();
