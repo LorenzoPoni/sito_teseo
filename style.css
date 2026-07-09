@@ -337,7 +337,9 @@ footer {
 
 #webcam {
     width: 100%;
-    height: auto;
+    height: 100%;
+    max-height: 80vh;
+    object-fit: contain;
     display: none;
 }
 
