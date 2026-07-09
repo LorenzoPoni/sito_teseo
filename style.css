@@ -298,6 +298,19 @@ footer {
     animation: fadeInUp 0.8s ease-out 0.4s both;
 }
 
+.mito-page-image {
+    width: 450px;
+    margin-top: 3rem;
+}
+
+.mito-wrapper {
+    align-items: flex-start;
+}
+
+.mito-wrapper .content-text {
+    padding-top: 2rem;
+}
+
 .come-section {
     background: 
         linear-gradient(rgba(15, 12, 10, 0.65), rgba(25, 20, 15, 0.70)),
