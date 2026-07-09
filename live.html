@@ -25,12 +25,8 @@
             <span class="dot-number">4</span>
             <span class="dot-label">Live</span>
         </a>
-        <a href="ai.html" class="nav-dot">
-            <span class="dot-number">5</span>
-            <span class="dot-label">AI</span>
-        </a>
         <a href="mast2026.html" class="nav-dot">
-            <span class="dot-number">6</span>
+            <span class="dot-number">5</span>
             <span class="dot-label">MAST 2026</span>
         </a>
         <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
@@ -38,19 +34,30 @@
 
     <section class="live-section section">
         <div class="overlay">
-            <div class="live-content">
-                <h1 class="section-title">Live Stream</h1>
-                <div class="divider"></div>
-                <div class="video-container">
-                    <video id="webcam" autoplay playsinline></video>
-                    <div class="video-placeholder" id="placeholder">
-                        <p>Clicca "Avvia Camera" per iniziare lo streaming</p>
+            <div class="live-wrapper">
+                <div class="live-video-section">
+                    <h2 class="live-subtitle">Camera</h2>
+                    <div class="video-container">
+                        <video id="webcam" autoplay playsinline></video>
+                        <div class="video-placeholder" id="placeholder">
+                            <p>Clicca "Avvia Camera" per iniziare lo streaming</p>
+                        </div>
+                        <button class="video-fullscreen-btn" id="fullscreenBtn" onclick="toggleVideoFullscreen()" style="display: none;">⛶</button>
                     </div>
-                    <button class="video-fullscreen-btn" id="fullscreenBtn" onclick="toggleVideoFullscreen()" style="display: none;">⛶</button>
+                    <div class="btn-group">
+                        <button class="camera-btn" id="startBtn" onclick="startCamera()">Avvia Camera</button>
+                        <button class="camera-btn stop" id="stopBtn" onclick="stopCamera()" style="display: none;">Ferma Camera</button>
+                    </div>
                 </div>
-                <div class="btn-group">
-                    <button class="camera-btn" id="startBtn" onclick="startCamera()">Avvia Camera</button>
-                    <button class="camera-btn stop" id="stopBtn" onclick="stopCamera()" style="display: none;">Ferma Camera</button>
+                <div class="live-ai-section">
+                    <h2 class="live-subtitle">AI Reasoning</h2>
+                    <div class="ai-indicator">
+                        <span class="ai-dot"></span>
+                        <span class="ai-status">Live</span>
+                    </div>
+                    <div class="reasoning-box" id="reasoningBox">
+                        <p id="aiReasoning">In attesa di dati da Mind+...</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,6 +69,34 @@
 
     <script>
         let stream = null;
+        let pollingInterval = null;
+
+        const API_URL = window.location.hostname === 'localhost' 
+            ? 'http://localhost:3000/api/ai-reasoning'
+            : `${window.location.origin}/api/ai-reasoning`;
+
+        function fetchAIReasoning() {
+            fetch(API_URL)
+                .then(response => response.json())
+                .then(data => {
+                    const reasoningEl = document.getElementById('aiReasoning');
+                    if (data.reasoning && data.reasoning !== reasoningEl.textContent) {
+                        reasoningEl.style.opacity = '0';
+                        setTimeout(() => {
+                            reasoningEl.textContent = data.reasoning;
+                            reasoningEl.style.opacity = '1';
+                        }, 300);
+                    }
+                })
+                .catch(err => {
+                    console.error('Errore fetch AI:', err);
+                });
+        }
+
+        function startAIPolling() {
+            fetchAIReasoning();
+            pollingInterval = setInterval(fetchAIReasoning, 500);
+        }
 
         async function startCamera() {
             try {
@@ -113,6 +148,11 @@
                 document.exitFullscreen();
             }
         }
+
+        window.addEventListener('load', startAIPolling);
+        window.addEventListener('beforeunload', () => {
+            if (pollingInterval) clearInterval(pollingInterval);
+        });
     </script>
 </body>
 </html>

@@ -408,6 +408,48 @@ footer {
     margin-top: 1.5rem;
 }
 
+.live-wrapper {
+    display: flex;
+    gap: 3rem;
+    width: 100%;
+    max-width: 1400px;
+    padding: 2rem;
+}
+
+.live-video-section,
+.live-ai-section {
+    flex: 1;
+}
+
+.live-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 1.5rem;
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.1em;
+}
+
+.live-ai-section .ai-indicator {
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.live-ai-section .reasoning-box {
+    min-height: 350px;
+}
+
+@media (max-width: 1024px) {
+    .live-wrapper {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .live-ai-section .reasoning-box {
+        min-height: 200px;
+    }
+}
+
 .mast-section {
     background: 
         linear-gradient(rgba(15, 12, 10, 0.70), rgba(25, 20, 15, 0.75)),
