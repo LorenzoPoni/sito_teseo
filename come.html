@@ -38,14 +38,48 @@
 
     <section class="come-section section">
         <div class="overlay">
-            <div class="content-wrapper">
-                <div class="content-text">
-                    <h1 class="section-title">Il come</h1>
-                    <div class="divider"></div>
-                    <p class="section-text">Per portare a termine questo progetto è servita molta coordinazione tra i membri del gruppo, ognuno contribuendo con le sue competenze. Il risultato di questo progetto è quello del lavoro di squadra e di una comunicazione efficace tra compagni.</p>
+            <div class="come-content">
+                <h1 class="section-title">Il come</h1>
+                <div class="divider"></div>
+                
+                <div class="circles-container">
+                    <div class="circle-item" onclick="toggleSection('iot')">
+                        <div class="circle">
+                            <span>IoT</span>
+                        </div>
+                    </div>
+                    
+                    <div class="circle-item" onclick="toggleSection('ia')">
+                        <div class="circle">
+                            <span>IA</span>
+                        </div>
+                    </div>
+                    
+                    <div class="circle-item" onclick="toggleSection('cyberworld')">
+                        <div class="circle">
+                            <span>Cyberworld</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="content-image">
-                    <img src="https://www.analisidellopera.it/wp-content/uploads/2021/03/Canova_Teseo_e_il_Minotauro.jpg" alt="Teseo e il Minotauro - Canova" class="mito-image">
+                
+                <div class="description-container">
+                    <div class="description-box" id="iot">
+                        <button class="close-btn" onclick="closeSection('iot')">×</button>
+                        <h3>Internet of Things</h3>
+                        <p><strong>Nives e Alessandro</strong> hanno programmato il movimento del Petoi utilizzando sensori di tocco e suono integrati nel robot, rendendolo reattivo all'ambiente circostante.</p>
+                    </div>
+                    
+                    <div class="description-box" id="ia">
+                        <button class="close-btn" onclick="closeSection('ia')">×</button>
+                        <h3>Intelligenza Artificiale</h3>
+                        <p><strong>Matteo, Martina e Ilaria</strong> hanno sviluppato il ragionamento del Petoi tramite programmazione a blocchi, permettendogli di comprendere e interagire con l'ambiente in modo intelligente.</p>
+                    </div>
+                    
+                    <div class="description-box" id="cyberworld">
+                        <button class="close-btn" onclick="closeSection('cyberworld')">×</button>
+                        <h3>Cyberworld</h3>
+                        <p><strong>Lorenzo</strong> ha progettato e sviluppato il sito web con sistema di streaming video e presentazione del progetto, creando l'interfaccia digitale del nostro lavoro.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -62,6 +96,21 @@
             } else {
                 document.exitFullscreen();
             }
+        }
+        
+        function toggleSection(sectionId) {
+            const allBoxes = document.querySelectorAll('.description-box');
+            allBoxes.forEach(box => {
+                box.classList.remove('active');
+            });
+            
+            const selectedBox = document.getElementById(sectionId);
+            selectedBox.classList.add('active');
+        }
+        
+        function closeSection(sectionId) {
+            const box = document.getElementById(sectionId);
+            box.classList.remove('active');
         }
     </script>
 </body>
