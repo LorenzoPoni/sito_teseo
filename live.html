@@ -38,7 +38,12 @@
             <span class="dot-label">MAST 2026</span>
         </a>
         <button class="fullscreen-btn" onclick="toggleFullscreen()">⛶</button>
+        <button class="music-btn" id="musicBtn" onclick="toggleMusic()">♪</button>
     </nav>
+
+    <div class="youtube-container" id="youtubeContainer">
+        <iframe id="youtubePlayer" width="560" height="315" src="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
 
     <section class="live-section section">
         <div class="overlay">
@@ -170,6 +175,29 @@
                 document.documentElement.requestFullscreen();
             } else {
                 document.exitFullscreen();
+            }
+        }
+
+        let musicPlaying = false;
+        const youtubeVideoId = 'tAKAkhwEf0M';
+
+        function toggleMusic() {
+            const player = document.getElementById('youtubePlayer');
+            const container = document.getElementById('youtubeContainer');
+            const btn = document.getElementById('musicBtn');
+            
+            if (!musicPlaying) {
+                if (!player.src.includes(youtubeVideoId)) {
+                    player.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&loop=1&playlist=${youtubeVideoId}`;
+                }
+                container.classList.add('visible');
+                btn.classList.add('active');
+                musicPlaying = true;
+            } else {
+                container.classList.remove('visible');
+                btn.classList.remove('active');
+                player.src = '';
+                musicPlaying = false;
             }
         }
 

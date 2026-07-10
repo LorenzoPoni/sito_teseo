@@ -47,6 +47,59 @@ body {
     color: #8b6914;
 }
 
+.music-btn {
+    margin-top: 0.5rem;
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: transparent;
+    color: rgba(139, 105, 20, 0.3);
+    font-size: 1.1rem;
+    cursor: pointer;
+    opacity: 0;
+    transition: all 0.3s ease;
+    align-self: flex-end;
+}
+
+.nav-dots:hover .music-btn {
+    opacity: 1;
+}
+
+.music-btn:hover {
+    color: #8b6914;
+}
+
+.music-btn.active {
+    color: #d4af37;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+}
+
+.youtube-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    height: 170px;
+    border-radius: 12px;
+    overflow: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+    z-index: 200;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+    border: 2px solid rgba(212, 175, 55, 0.4);
+}
+
+.youtube-container.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.youtube-container iframe {
+    width: 100%;
+    height: 100%;
+}
+
 .nav-dot {
     display: flex;
     align-items: center;
