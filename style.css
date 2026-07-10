@@ -384,6 +384,30 @@ footer {
     pointer-events: none;
 }
 
+.petoi-content {
+    text-align: center;
+    z-index: 1;
+    max-width: 1200px;
+    padding: 2rem;
+}
+
+.petoi-content .section-text {
+    margin: 0 auto;
+}
+
+.petoi-image-container {
+    margin-top: 3rem;
+}
+
+.petoi-image {
+    max-width: 800px;
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 12px 48px rgba(0, 0, 0, 0.8);
+    border: 3px solid rgba(212, 175, 55, 0.4);
+}
+
 .come-section {
     background: 
         linear-gradient(rgba(15, 12, 10, 0.65), rgba(25, 20, 15, 0.70)),
